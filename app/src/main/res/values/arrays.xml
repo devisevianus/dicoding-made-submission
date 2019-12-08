@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="MoviesTitle">
+        <item>Avengers: Infinity Wars</item>
+        <item>Spider-Man: Into the Spider Verse</item>
+        <item>Venom</item>
+        <item>Aquaman</item>
+        <item>Bumblebee</item>
+        <item>How to Train Your Dragon: The Hidden World</item>
+        <item>Bohemian Rhapsody</item>
+        <item>Mortal Engines</item>
+        <item>A Star Is Born</item>
+        <item>Robin Hood</item>
+    </string-array>
+
+    <string-array name="MoviesRelaseDate">
+        <item>April 25, 2018</item> <!-- Avengers -->
+        <item>December 6, 2018</item> <!-- Spider-Man -->
+        <item>September 28, 2018</item> <!-- Venom -->
+        <item>December 7, 2018</item> <!-- Aquaman -->
+        <item>December 15, 2018</item> <!-- Bumblebee -->
+        <item>January 3, 2019</item> <!-- Dragon -->
+        <item>October 24, 2018</item> <!-- Bohemian Rhapsody -->
+        <item>November 27, 2018</item> <!-- Mortal Engines -->
+        <item>October 3, 2018</item> <!-- A Star is Born -->
+        <item>November 21, 2018</item> <!-- Robin Hood -->
+    </string-array>
+
+    <string-array name="MoviesRating">
+        <item>83</item> <!-- Avengers -->
+        <item>84</item> <!-- Spider-Man -->
+        <item>66</item> <!-- Venom -->
+        <item>68</item> <!-- Aquaman -->
+        <item>65</item> <!-- Bumblebee -->
+        <item>77</item> <!-- Dragon -->
+        <item>80</item> <!-- Bohemian Rhapsody -->
+        <item>61</item> <!-- Mortal Engines -->
+        <item>75</item> <!-- A Star is Born -->
+        <item>58</item> <!-- Robin Hood -->
+    </string-array>
+
+    <string-array name="MoviesDrawable">
+        <item>@drawable/img_poster_avengerinfinity</item>
+        <item>@drawable/img_poster_spiderman</item>
+        <item>@drawable/img_poster_venom</item>
+        <item>@drawable/img_poster_aquaman</item>
+        <item>@drawable/img_poster_bumblebee</item>
+        <item>@drawable/img_poster_dragon</item>
+        <item>@drawable/img_poster_bohemian</item>
+        <item>@drawable/img_poster_mortalengine</item>
+        <item>@drawable/img_poster_a_star</item>
+        <item>@drawable/img_poster_robinhood</item>
+    </string-array>
+
+    <string-array name="MoviesOverview">
+        <item> <!-- Avengers -->
+            As the Avengers and their allies have continued to protect
+            the world from threats too large for any one hero to
+            handle, a new danger has emerged from the cosmic shadows: Thanos.
+            A despot of intergalactic infamy, his goal is to collect all six
+            Infinity Stones, artifacts of unimaginable power, and use them to
+            inflict his twisted will on all of reality. Everything the Avengers have fought
+            for has led up to this moment - the fate of Earth and existence itself has never been more uncertain.
+        </item>
+        <item> <!-- Spider-Man -->
+            Miles Morales is juggling his life between being a high school
+            student and being a spider-man. When Wilson \"Kingpin\" Fisk uses
+            a super collider, others from across the Spider-Verse are
+            transported to this dimension.
+        </item>
+        <item> <!-- Venom -->
+            Investigative journalist Eddie Brock attempts a comeback following
+            a scandal, but accidentally becomes the host of Venom, a violent,
+            super powerful alien symbiote. Soon, he must rely on his newfound
+            powers to protect the world from a shadowy organization looking for a symbiote of their own.
+        </item>
+        <item> <!-- Aquaman -->
+            Once home to the most advanced civilization on Earth, Atlantis is now an
+            underwater kingdom ruled by the power-hungry King Orm. With a vast army at his
+            disposal, Orm plans to conquer the remaining oceanic people and then the surface world.
+            Standing in his way is Arthur Curry, Orm\'s half-human, half-Atlantean brother and true heir to the throne.
+        </item>
+        <item> <!-- Bumblebee -->
+            On the run in the year 1987, Bumblebee finds refuge in a junkyard
+            in a small Californian beach town. Charlie, on the cusp of turning 18 and
+            trying to find her place in the world, discovers Bumblebee, battle-scarred and broken.
+            When Charlie revives him, she quickly learns this is no ordinary yellow VW bug.
+        </item>
+        <item> <!-- Dragon -->
+            As Hiccup fulfills his dream of creating a peaceful dragon utopia, Toothless\’
+            discovery of an untamed, elusive mate draws the Night Fury away. When danger mounts
+            at home and Hiccup\’s reign as village chief is tested, both dragon and rider must make
+            impossible decisions to save their kind.
+        </item>
+        <item> <!-- Bohemian Rhapsody -->
+            Singer Freddie Mercury, guitarist Brian May, drummer Roger Taylor and bass guitarist
+            John Deacon take the music world by storm when they form the rock \'n\' roll band Queen in 1970.
+            Hit songs become instant classics. When Mercury\'s increasingly wild lifestyle starts
+            to spiral out of control, Queen soon faces its greatest challenge yet – finding a way
+            to keep the band together amid the success and excess.
+        </item>
+        <item> <!-- Mortal Engines -->
+            Many thousands of years in the future, Earth\’s cities roam the globe
+            on huge wheels, devouring each other in a struggle for ever diminishing resources.
+            On one of these massive traction cities, the old London, Tom Natsworthy has an unexpected
+            encounter with a mysterious young woman from the wastelands who will change the course
+            of his life forever.
+        </item>
+        <item> <!-- A Star Is Born -->
+            Seasoned musician Jackson Maine discovers — and falls in love with — struggling artist Ally.
+            She has just about given up on her dream to make it big as a singer — until Jack
+            coaxes her into the spotlight. But even as Ally\'s career takes off, the personal side
+            of their relationship is breaking down, as Jack fights an ongoing battle with his
+            own internal demons.
+        </item>
+        <item> <!-- Robin Hood -->
+            A war-hardened Crusader and his Moorish commander mount an audacious revolt against the corrupt English crown.
+        </item>
+    </string-array>
+    
+    <string-array name="MoviesDirector">
+        <item>Joe Russo, Anthony Russo</item> <!-- Avengers -->
+        <item>Rodney Rothman, Peter Ramsey, Bob Persichetti</item> <!-- Spider-Man -->
+        <item>Ruben Fleischer</item> <!-- Venom -->
+        <item>James Wan</item> <!-- Aquaman -->
+        <item>Travis Knight</item> <!-- Bumblebee -->
+        <item>Dean DeBlois</item> <!-- Dragon -->
+        <item>Bryan Singer, Dexter Fletcher</item> <!-- Bohemian Rhapsody -->
+        <item>Christian Rivers</item> <!-- Mortal Engines -->
+        <item>Bradley Cooper</item> <!-- A Star Is Born -->
+        <item>Otto Bathurst</item> <!-- Robin Hood -->
+    </string-array>
+
+</resources>

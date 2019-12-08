@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">DicodingMadeSubmission1</string>
+
+    <string name="title_movie">Box Office Movies</string>
+    <string name="title_movie_detail">Movie Detail</string>
+    <string name="label_rating">Rating: </string>
+    <string name="label_overview">Overview</string>
 </resources>

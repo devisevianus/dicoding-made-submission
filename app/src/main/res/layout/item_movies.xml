@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="@dimen/dp16"
+    android:paddingEnd="@dimen/dp16">
+
+    <ImageView
+        android:id="@+id/iv_movie_poster"
+        android:layout_width="@dimen/dp75"
+        android:layout_height="@dimen/dp100"
+        android:scaleType="centerCrop"
+        tools:srcCompat="@drawable/img_poster_avengerinfinity"
+        tools:ignore="ContentDescription"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/iv_movie_poster"
+        android:layout_marginStart="@dimen/dp16"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_movie_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp16"
+            android:textStyle="bold"
+            tools:text="Avengers: Infinity Wars"
+            />
+
+        <TextView
+            android:id="@+id/tv_movie_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Released: April 25, 2018"
+            />
+
+        <TextView
+            android:id="@+id/tv_movie_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Rating: 83"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>
