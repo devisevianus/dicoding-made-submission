@@ -1,6 +1,5 @@
 package com.stickearn.dicodingmadesubmission1
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.Drawable
@@ -46,15 +45,14 @@ class MovieDetailActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    @SuppressLint("SetTextI18n")
     private fun initView() {
         val movie = intent.getParcelableExtra<MovieMdl>(EXTRA_MOVIE)
 
         iv_movie_poster.setImageDrawable(loadMoviePoster(movie?.position!!))
         tv_movie_title.text = movie.title
-        tv_movie_date.text = "Released date: ${movie.date}"
-        tv_movie_director.text = "Director: ${movie.director}"
-        tv_movie_rating.text = "(${movie.rating})"
+        tv_movie_date.text = resources.getString(R.string.placeholder_release_date, movie.date)
+        tv_movie_director.text = resources.getString(R.string.placeholder_director, movie.director)
+        tv_movie_rating.text = resources.getString(R.string.placeholder_rating, movie.rating)
         tv_movie_overview.text = movie.overview
         rb_movies.max = 100
         rb_movies.progress = (movie.rating?.toInt()!!)
