@@ -1,4 +1,4 @@
-package com.stickearn.dicodingmadesubmission1
+package com.stickearn.dicodingmadesubmission1.view.movie.detail
 
 import android.content.Context
 import android.content.Intent
@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.stickearn.dicodingmadesubmission1.R
+import com.stickearn.dicodingmadesubmission1.model.MovieMdl
 import kotlinx.android.synthetic.main.activity_movie_detail.*
 import kotlinx.android.synthetic.main.layout_toolbar.*
 

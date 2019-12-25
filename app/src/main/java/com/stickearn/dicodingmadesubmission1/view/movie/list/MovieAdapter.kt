@@ -1,4 +1,4 @@
-package com.stickearn.dicodingmadesubmission1
+package com.stickearn.dicodingmadesubmission1.view.movie.list
 
 import android.content.Context
 import android.graphics.drawable.Drawable
@@ -7,13 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.core.content.ContextCompat
+import com.stickearn.dicodingmadesubmission1.R
+import com.stickearn.dicodingmadesubmission1.model.MovieMdl
 import kotlinx.android.synthetic.main.item_movies.view.*
 
 /**
  * Created by devis on 2019-12-08
  */
 
-class MovieAdapter(context: Context, movieList: ArrayList<MovieMdl>) : ArrayAdapter<MovieMdl>(context, R.layout.item_movies, movieList) {
+class MovieAdapter(context: Context, movieList: ArrayList<MovieMdl>) : ArrayAdapter<MovieMdl>(context,
+    R.layout.item_movies, movieList) {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         var view = convertView

@@ -1,4 +1,4 @@
-package com.stickearn.dicodingmadesubmission1
+package com.stickearn.dicodingmadesubmission1.model
 
 import android.os.Parcel
 import android.os.Parcelable

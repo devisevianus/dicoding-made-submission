@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Movies -->
     <string-array name="MoviesTitle">
         <item>Avengers: Infinity Wars</item>
         <item>Spider-Man: Into the Spider Verse</item>
@@ -130,6 +131,21 @@
         <item>Christian Rivers</item> <!-- Mortal Engines -->
         <item>Bradley Cooper</item> <!-- A Star Is Born -->
         <item>Otto Bathurst</item> <!-- Robin Hood -->
+    </string-array>
+
+
+    <!-- TV Shows -->
+    <string-array name="TvShowsTitle">
+        <item>Arrow</item>
+        <item>Dragon Ball</item>
+        <item>Family Guy</item>
+        <item>Flash</item>
+        <item>Naruto Shipudden</item>
+        <item>Shameless</item>
+        <item>Supergirl</item>
+        <item>Supernatural</item>
+        <item>The Simpson</item>
+        <item>The Walking Dead</item>
     </string-array>
 
 </resources>

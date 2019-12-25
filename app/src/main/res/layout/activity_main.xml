@@ -4,12 +4,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".view.MainActivity">
 
     <include layout="@layout/layout_toolbar" />
 
-    <ListView
-        android:id="@+id/lv_movie"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tablayout_content"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vp_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
