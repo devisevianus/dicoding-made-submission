@@ -1,4 +1,4 @@
-package com.stickearn.dicodingmadesubmission1.view.movie.list
+package com.stickearn.dicodingmadesubmission1.view.tv.list
 
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
@@ -13,29 +13,29 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.stickearn.dicodingmadesubmission1.R
-import com.stickearn.dicodingmadesubmission1.model.MovieMdl
-import com.stickearn.dicodingmadesubmission1.view.movie.detail.MovieDetailActivity
-import kotlinx.android.synthetic.main.fragment_movies.*
+import com.stickearn.dicodingmadesubmission1.model.TvShowsMdl
+import kotlinx.android.synthetic.main.fragment_tv_shows.*
 import java.io.ByteArrayOutputStream
 
 /**
  * Created by devis on 2019-12-25
  */
 
-class MovieFragment : Fragment(), AdapterView.OnItemClickListener {
+class TvShowsFragment : Fragment(), AdapterView.OnItemClickListener {
 
     companion object {
-        fun newInstance(): Fragment = MovieFragment()
+        fun newInstance(): Fragment =
+            TvShowsFragment()
     }
 
-    private var movieList = arrayListOf<MovieMdl>()
+    private var tvShowsList = arrayListOf<TvShowsMdl>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_movies, container, false)
+        return inflater.inflate(R.layout.fragment_tv_shows, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -45,46 +45,42 @@ class MovieFragment : Fragment(), AdapterView.OnItemClickListener {
     }
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        MovieDetailActivity.startThisActivity(
-            context!!,
-            movieList[position]
-        )
     }
 
     private fun initListView() {
-        val moviesTitle = resources.getStringArray(R.array.MoviesTitle)
-        val moviesReleaseDate = resources.getStringArray(R.array.MoviesRelaseDate)
-        val moviesRating = resources.getStringArray(R.array.MoviesRating)
-        val moviesDirector = resources.getStringArray(R.array.MoviesDirector)
-        val moviesOverview = resources.getStringArray(R.array.MoviesOverview)
-        for (i in moviesTitle.indices) {
-            val movieMdl = MovieMdl(
+        val tvShowsTitle = resources.getStringArray(R.array.TvShowsTitle)
+        val tvShowsReleaseDate = resources.getStringArray(R.array.TvShowsReleaseDate)
+        val tvShowsRating = resources.getStringArray(R.array.TvShowsRating)
+        val tvShowsDirector = resources.getStringArray(R.array.TvShowsDirector)
+        val tvShowsOverView = resources.getStringArray(R.array.TvShowsOverview)
+
+        for (i in tvShowsTitle.indices) {
+            val tvShowsMdl = TvShowsMdl(
                 convertToByteArray(loadTvShowsPoster()[i]!!),
-                moviesTitle[i],
-                moviesReleaseDate[i],
-                moviesRating[i],
-                moviesDirector[i],
-                moviesOverview[i]
+                tvShowsTitle[i],
+                tvShowsReleaseDate[i],
+                tvShowsRating[i],
+                tvShowsDirector[i],
+                tvShowsOverView[i]
             )
-            movieList.add(movieMdl)
+            tvShowsList.add(tvShowsMdl)
         }
 
         val linearLayoutManager = LinearLayoutManager(
-            context,
+            context!!,
             LinearLayoutManager.VERTICAL,
             false
         )
-
-        val adapter = MovieAdapter(movieList)
-        rv_movie.apply {
+        val adapter = TvShowsAdapter(tvShowsList)
+        rv_tv_shows.apply {
             layoutManager = linearLayoutManager
             this.adapter = adapter
-            addItemDecoration(DividerItemDecoration(context, linearLayoutManager.orientation))
+            addItemDecoration(DividerItemDecoration(context!!, linearLayoutManager.orientation))
         }
     }
 
     private fun loadTvShowsPoster(): Array<Drawable?> {
-        val ta = resources.obtainTypedArray(R.array.MoviesDrawable)
+        val ta = resources.obtainTypedArray(R.array.TvShowsDrawable)
         val icons = arrayOfNulls<Drawable>(ta.length())
         for (i in 0 until ta.length()) {
             val id = ta.getResourceId(i, 0)

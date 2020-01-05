@@ -2,14 +2,14 @@ package com.stickearn.dicodingmadesubmission1.view.movie.detail
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.drawable.Drawable
+import android.graphics.BitmapFactory
+import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import com.stickearn.dicodingmadesubmission1.R
 import com.stickearn.dicodingmadesubmission1.model.MovieMdl
-import kotlinx.android.synthetic.main.activity_movie_detail.*
+import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.layout_toolbar.*
 
 /**
@@ -30,13 +30,9 @@ class MovieDetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_movie_detail)
+        setContentView(R.layout.activity_detail)
 
-        tv_toolbar_title.text = resources.getString(R.string.title_movie_detail)
-        setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
+        initToolbar()
         initView()
     }
 
@@ -47,10 +43,17 @@ class MovieDetailActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun initView() {
-        val movie = intent.getParcelableExtra<MovieMdl>(EXTRA_MOVIE)
+    private fun initToolbar() {
+        tv_toolbar_title.text = resources.getString(R.string.title_movie_detail)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
 
-        iv_movie_poster.setImageDrawable(loadMoviePoster(movie?.position!!))
+    private fun initView() {
+        val movie = intent.getSerializableExtra(EXTRA_MOVIE) as MovieMdl
+        val drawable = BitmapDrawable(resources, BitmapFactory.decodeByteArray(movie.poster, 0, movie.poster?.size!!))
+        iv_movie_poster.setImageDrawable(drawable)
         tv_movie_title.text = movie.title
         tv_movie_date.text = resources.getString(R.string.placeholder_release_date, movie.date)
         tv_movie_director.text = resources.getString(R.string.placeholder_director, movie.director)
@@ -58,20 +61,6 @@ class MovieDetailActivity : AppCompatActivity() {
         tv_movie_overview.text = movie.overview
         rb_movies.max = 100
         rb_movies.progress = (movie.rating?.toInt()!!)
-    }
-
-    private fun loadMoviePoster(position: Int): Drawable? {
-        val ta = resources.obtainTypedArray(R.array.MoviesDrawable)
-        val poster = arrayOfNulls<Drawable>(ta.length())
-        for (i in 0 until ta.length()) {
-            val id = ta.getResourceId(i, 0)
-            if (id != 0) {
-                poster[i] = ContextCompat.getDrawable(this, id)
-            }
-        }
-        ta.recycle()
-
-        return poster[position]
     }
 
 }
