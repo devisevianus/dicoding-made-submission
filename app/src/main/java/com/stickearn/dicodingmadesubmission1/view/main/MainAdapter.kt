@@ -1,4 +1,4 @@
-package com.stickearn.dicodingmadesubmission1.view
+package com.stickearn.dicodingmadesubmission1.view.main
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -8,7 +8,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter
  * Created by devis on 2019-12-25
  */
 
-class MainAdapter(fragmentManager: FragmentManager?) : FragmentStatePagerAdapter(fragmentManager!!) {
+class MainAdapter(fragmentManager: FragmentManager?) : FragmentStatePagerAdapter(fragmentManager!!, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
     private val tabNames: ArrayList<String> = arrayListOf()
     private val fragments: ArrayList<Fragment> = arrayListOf()

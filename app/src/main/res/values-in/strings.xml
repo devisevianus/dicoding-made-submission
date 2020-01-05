@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">DicodingMadeSubmission</string>
 
-    <string name="title_app">Dicoding Submission 2</string>
+    <string name="title_app">Dicoding Submission 3</string>
     <string name="title_movie_detail">Detil Film</string>
     <string name="title_tv_shows_detail">Detil Acara TV</string>
     <string name="title_movies">Film</string>
@@ -10,6 +10,9 @@
     <string name="title_change_language">Ubah Bahasa</string>
     <string name="label_rating">Penilaian: </string>
     <string name="label_overview">Ikhtisar</string>
+    <string name="message_no_connection">Periksa koneksi Anda</string>
+    <string name="message_failed_load_movies">Gagal memuat film</string>
+    <string name="message_failed_load_tv_shows">Gagal memuat acara TV</string>
     <string name="placeholder_release_date">Tanggal rilis: %1$s</string>
     <string name="placeholder_director">Sutradara: %1$s</string>
     <string name="placeholder_rating_">Penilaian: %1$s</string>

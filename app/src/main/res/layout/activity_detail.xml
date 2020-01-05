@@ -44,22 +44,12 @@
         />
 
     <TextView
-        android:id="@+id/tv_movie_director"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dp16"
-        app:layout_constraintTop_toBottomOf="@id/tv_movie_date"
-        app:layout_constraintStart_toEndOf="@id/iv_movie_poster"
-        tools:text="Director: Joe Russo"
-        />
-
-    <TextView
         android:id="@+id/tv_label_rating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp16"
         android:text="@string/label_rating"
-        app:layout_constraintTop_toBottomOf="@id/tv_movie_director"
+        app:layout_constraintTop_toBottomOf="@id/tv_movie_date"
         app:layout_constraintStart_toEndOf="@id/iv_movie_poster"
         />
 
@@ -72,7 +62,7 @@
         android:indeterminate="false"
         android:max="100"
         android:progress="70"
-        app:layout_constraintTop_toBottomOf="@id/tv_movie_director"
+        app:layout_constraintTop_toBottomOf="@id/tv_movie_date"
         app:layout_constraintStart_toEndOf="@id/tv_label_rating"
         style="@style/Widget.AppCompat.RatingBar.Small"
         />
@@ -82,7 +72,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp4"
-        app:layout_constraintTop_toBottomOf="@id/tv_movie_director"
+        app:layout_constraintTop_toBottomOf="@id/tv_movie_date"
         app:layout_constraintStart_toEndOf="@id/rb_movies"
         tools:text="(83)"
         />

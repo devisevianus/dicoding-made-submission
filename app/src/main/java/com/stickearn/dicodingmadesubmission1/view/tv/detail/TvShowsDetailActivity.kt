@@ -2,12 +2,13 @@ package com.stickearn.dicodingmadesubmission1.view.tv.detail
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.BitmapFactory
-import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.stickearn.dicodingmadesubmission1.R
+import com.stickearn.dicodingmadesubmission1.helper.convertDate
+import com.stickearn.dicodingmadesubmission1.helper.convertToLong
 import com.stickearn.dicodingmadesubmission1.model.TvShowsMdl
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.layout_toolbar.*
@@ -54,18 +55,16 @@ class TvShowsDetailActivity : AppCompatActivity() {
         try {
             val tvShows = intent.getSerializableExtra(EXTRA_TV_SHOWS) as TvShowsMdl
 
-            val drawable = BitmapDrawable(resources, BitmapFactory.decodeByteArray(tvShows.poster, 0, tvShows.poster?.size!!))
+            Glide.with(this)
+                .load("https://image.tmdb.org/t/p/w185/${tvShows.poster}")
+                .into(iv_movie_poster)
 
-            iv_movie_poster.setImageDrawable(drawable)
-            tv_movie_title.text = tvShows.title
-            tv_movie_date.text =
-                resources.getString(R.string.placeholder_release_date, tvShows.date)
-            tv_movie_director.text =
-                resources.getString(R.string.placeholder_director, tvShows.director)
-            tv_movie_rating.text = resources.getString(R.string.placeholder_rating, tvShows.rating)
+            tv_movie_title.text = tvShows.name
+            tv_movie_date.text = resources.getString(R.string.placeholder_release_date, tvShows.first_air_date.convertToLong()?.convertDate())
+            tv_movie_rating.text = resources.getString(R.string.placeholder_rating, tvShows.vote_average.toString())
             tv_movie_overview.text = tvShows.overview
             rb_movies.max = 100
-            rb_movies.progress = (tvShows.rating?.toInt()!!)
+            rb_movies.progress = ((tvShows.vote_average * 10).toInt())
         } catch (e: Exception) {
             e.printStackTrace()
         }

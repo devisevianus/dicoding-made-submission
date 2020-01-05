@@ -1,4 +1,4 @@
-package com.stickearn.dicodingmadesubmission1.view
+package com.stickearn.dicodingmadesubmission1.view.main
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -22,7 +22,8 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
-        val pagerAdapter = MainAdapter(supportFragmentManager)
+        val pagerAdapter =
+            MainAdapter(supportFragmentManager)
         pagerAdapter.add(MovieFragment.newInstance(), resources.getString(R.string.title_movies))
         pagerAdapter.add(TvShowsFragment.newInstance(), resources.getString(R.string.title_tv_shows))
 

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">DicodingMadeSubmission</string>
 
-    <string name="title_app">Dicoding Submission 2</string>
+    <string name="title_app">Dicoding Submission 3</string>
     <string name="title_movie_detail">Movie Detail</string>
     <string name="title_tv_shows_detail">TV Show Detail</string>
     <string name="title_movies">Movies</string>
@@ -9,6 +9,9 @@
     <string name="title_change_language">Change Language</string>
     <string name="label_rating">Rating: </string>
     <string name="label_overview">Overview</string>
+    <string name="message_no_connection">Please check your connection</string>
+    <string name="message_failed_load_movies">Failed to movie list</string>
+    <string name="message_failed_load_tv_shows">Failed to TV shows list</string>
     <string name="placeholder_release_date">Release date: %1$s</string>
     <string name="placeholder_director">Director: %1$s</string>
     <string name="placeholder_rating" translatable="false">(%1$s)</string>
