@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.stickearn.dicodingmadesubmission1.R
 import com.stickearn.dicodingmadesubmission1.helper.convertDate
@@ -29,6 +30,8 @@ class MovieDetailActivity : AppCompatActivity() {
         }
     }
 
+    private var isChecked = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
@@ -49,6 +52,11 @@ class MovieDetailActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        toggle_favorite.isVisible = true
+        toggle_favorite.setOnClickListener {
+            isChecked = !isChecked
+            toggle_favorite.isChecked = isChecked
+        }
     }
 
     private fun initView() {

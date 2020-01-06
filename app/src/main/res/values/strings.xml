@@ -1,11 +1,12 @@
 <resources>
     <string name="app_name">DicodingMadeSubmission</string>
 
-    <string name="title_app">Dicoding Submission 3</string>
+    <string name="title_app">Dicoding Submission 4</string>
     <string name="title_movie_detail">Movie Detail</string>
     <string name="title_tv_shows_detail">TV Show Detail</string>
     <string name="title_movies">Movies</string>
     <string name="title_tv_shows">TV Shows</string>
+    <string name="title_favorite">Favorites</string>
     <string name="title_change_language">Change Language</string>
     <string name="label_rating">Rating: </string>
     <string name="label_overview">Overview</string>

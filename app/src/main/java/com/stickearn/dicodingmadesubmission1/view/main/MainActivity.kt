@@ -6,7 +6,10 @@ import android.os.Bundle
 import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
+import androidx.core.view.get
 import com.stickearn.dicodingmadesubmission1.R
+import com.stickearn.dicodingmadesubmission1.util.replaceFragment
+import com.stickearn.dicodingmadesubmission1.view.favorite.FavoriteFragment
 import com.stickearn.dicodingmadesubmission1.view.movie.list.MovieFragment
 import com.stickearn.dicodingmadesubmission1.view.tv.list.TvShowsFragment
 import kotlinx.android.synthetic.main.activity_main.*
@@ -14,21 +17,22 @@ import kotlinx.android.synthetic.main.layout_toolbar.*
 
 class MainActivity : AppCompatActivity() {
 
+    companion object {
+        private const val TAG_MOVIES = "Movies"
+        private const val TAG_FILM = "Film"
+        private const val TAG_FAVORITES = "Favorites"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        tv_toolbar_title.text = resources.getString(R.string.title_app)
-        setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
+        initToolbar()
+        initBottomNavigation()
 
-        val pagerAdapter =
-            MainAdapter(supportFragmentManager)
-        pagerAdapter.add(MovieFragment.newInstance(), resources.getString(R.string.title_movies))
-        pagerAdapter.add(TvShowsFragment.newInstance(), resources.getString(R.string.title_tv_shows))
-
-        vp_content.adapter = pagerAdapter
-        tablayout_content.setupWithViewPager(vp_content)
+        if (savedInstanceState == null) {
+            replaceFragment(MovieFragment.newInstance(), R.id.container, TAG_MOVIES)
+        }
 
     }
 
@@ -43,6 +47,33 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun initToolbar() {
+        tv_toolbar_title.text = resources.getString(R.string.title_app)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+    }
+
+    private fun initBottomNavigation() {
+        bnv_menu.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.navigation_movies -> {
+                    replaceFragment(MovieFragment.newInstance(), R.id.container, TAG_MOVIES)
+                    item.isChecked = true
+                }
+                R.id.navigation_tv_shows -> {
+                    replaceFragment(TvShowsFragment.newInstance(), R.id.container, TAG_FILM)
+                    item.isChecked = true
+                }
+                R.id.navigation_favorite -> {
+                    replaceFragment(FavoriteFragment.newInstance(), R.id.container, TAG_FAVORITES)
+                    item.isChecked = true
+                }
+            }
+
+            false
+        }
     }
 
 }

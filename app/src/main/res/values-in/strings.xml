@@ -2,11 +2,12 @@
 <resources>
     <string name="app_name">DicodingMadeSubmission</string>
 
-    <string name="title_app">Dicoding Submission 3</string>
+    <string name="title_app">Dicoding Submission 4</string>
     <string name="title_movie_detail">Detil Film</string>
     <string name="title_tv_shows_detail">Detil Acara TV</string>
     <string name="title_movies">Film</string>
     <string name="title_tv_shows">Acara TV</string>
+    <string name="title_favorite">Favorit</string>
     <string name="title_change_language">Ubah Bahasa</string>
     <string name="label_rating">Penilaian: </string>
     <string name="label_overview">Ikhtisar</string>
