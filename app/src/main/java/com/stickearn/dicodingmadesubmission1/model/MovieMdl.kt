@@ -1,5 +1,9 @@
 package com.stickearn.dicodingmadesubmission1.model
 
+import androidx.annotation.NonNull
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
@@ -12,9 +16,13 @@ class MovieResponseMdl(
     val results: List<MovieMdl>
 )
 
-class MovieMdl(
+@Entity(tableName = "movie_table")
+data class MovieMdl(
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id")
+    @NonNull
     @SerializedName("id")
-    val id: Int,
+    val id: Long,
     @SerializedName("title")
     val title: String,
     @SerializedName("overview")

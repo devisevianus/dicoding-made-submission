@@ -14,7 +14,8 @@
     <string name="message_no_connection">Periksa koneksi Anda</string>
     <string name="message_failed_load_movies">Gagal memuat film</string>
     <string name="message_failed_load_tv_shows">Gagal memuat acara TV</string>
+    <string name="message_add_to_favorite">Ditambahkan ke favorit</string>
+    <string name="message_remove_from_favorite">Dihapus dari favorit</string>
     <string name="placeholder_release_date">Tanggal rilis: %1$s</string>
-    <string name="placeholder_director">Sutradara: %1$s</string>
     <string name="placeholder_rating_">Penilaian: %1$s</string>
 </resources>

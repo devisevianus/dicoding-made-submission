@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.stickearn.dicodingmadesubmission1.R
-import com.stickearn.dicodingmadesubmission1.view.movie.list.MovieFragment
-import com.stickearn.dicodingmadesubmission1.view.tv.list.TvShowsFragment
+import com.stickearn.dicodingmadesubmission1.view.favorite.movie.MovieFavoriteFragment
+import com.stickearn.dicodingmadesubmission1.view.favorite.tv.TvFavoriteFragment
 import kotlinx.android.synthetic.main.fragment_favorite.*
 
 /**
@@ -32,8 +32,8 @@ class FavoriteFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val pagerAdapter = FavoriteAdapter(activity?.supportFragmentManager)
-        pagerAdapter.add(MovieFragment.newInstance(), resources.getString(R.string.title_movies))
-        pagerAdapter.add(TvShowsFragment.newInstance(), resources.getString(R.string.title_tv_shows))
+        pagerAdapter.add(MovieFavoriteFragment.newInstance(), resources.getString(R.string.title_movies))
+        pagerAdapter.add(TvFavoriteFragment.newInstance(), resources.getString(R.string.title_tv_shows))
 
         vp_content.adapter = pagerAdapter
         tablayout_content.setupWithViewPager(vp_content)

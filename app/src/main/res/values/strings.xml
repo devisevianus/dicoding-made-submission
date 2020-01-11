@@ -13,8 +13,9 @@
     <string name="message_no_connection">Please check your connection</string>
     <string name="message_failed_load_movies">Failed to movie list</string>
     <string name="message_failed_load_tv_shows">Failed to TV shows list</string>
+    <string name="message_add_to_favorite">Added to favorite</string>
+    <string name="message_remove_from_favorite">Removed from favorite</string>
     <string name="placeholder_release_date">Release date: %1$s</string>
-    <string name="placeholder_director">Director: %1$s</string>
     <string name="placeholder_rating" translatable="false">(%1$s)</string>
     <string name="placeholder_rating_">Rating: %1$s</string>
 </resources>

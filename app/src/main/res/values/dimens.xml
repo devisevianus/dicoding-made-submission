@@ -4,7 +4,6 @@
     <dimen name="sp16">16sp</dimen>
     <dimen name="sp18">18sp</dimen>
 
-    <dimen name="dp1">1dp</dimen>
     <dimen name="dp4">4dp</dimen>
     <dimen name="dp8">8dp</dimen>
     <dimen name="dp10">10dp</dimen>

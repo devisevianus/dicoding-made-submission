@@ -16,6 +16,7 @@ import com.google.gson.reflect.TypeToken
 import com.stickearn.dicodingmadesubmission1.R
 import com.stickearn.dicodingmadesubmission1.base.BaseViewState
 import com.stickearn.dicodingmadesubmission1.model.MovieMdl
+import com.stickearn.dicodingmadesubmission1.view.movie.MovieViewModel
 import kotlinx.android.synthetic.main.fragment_movies.*
 
 /**
@@ -45,7 +46,7 @@ class MovieFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(MovieViewModel::class.java)
+        mViewModel = ViewModelProvider(this).get(MovieViewModel::class.java)
         mAdapter = MovieAdapter()
 
         if (savedInstanceState == null) {

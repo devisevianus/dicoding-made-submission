@@ -1,11 +1,9 @@
-package com.stickearn.dicodingmadesubmission1.view.tv.list
+package com.stickearn.dicodingmadesubmission1.view.favorite.tv
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -14,24 +12,23 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.stickearn.dicodingmadesubmission1.R
-import com.stickearn.dicodingmadesubmission1.base.BaseViewState
 import com.stickearn.dicodingmadesubmission1.model.TvShowsMdl
-import com.stickearn.dicodingmadesubmission1.view.tv.TvShowsViewModel
+import com.stickearn.dicodingmadesubmission1.view.favorite.FavoriteViewModel
 import kotlinx.android.synthetic.main.fragment_tv_shows.*
 
 /**
- * Created by devis on 2019-12-25
+ * Created by devis on 2020-01-11
  */
 
-class TvShowsFragment : Fragment() {
+class TvFavoriteFragment : Fragment() {
 
     companion object {
         private const val TV_SHOWS_LIST = "tv_shows_list"
-        fun newInstance(): Fragment = TvShowsFragment()
+        fun newInstance(): Fragment = TvFavoriteFragment()
     }
 
-    private lateinit var mViewModel: TvShowsViewModel
-    private lateinit var mAdapter: TvShowsAdapter
+    private lateinit var mViewModel: FavoriteViewModel
+    private lateinit var mAdapter: TvFavoriteAdapter
 
     private var tvShowsList = arrayListOf<TvShowsMdl>()
 
@@ -46,11 +43,17 @@ class TvShowsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mViewModel = ViewModelProvider(this).get(TvShowsViewModel::class.java)
-        mAdapter = TvShowsAdapter()
+        mViewModel = ViewModelProvider(this).get(FavoriteViewModel::class.java)
+        mAdapter = TvFavoriteAdapter()
 
         if (savedInstanceState == null) {
-            mViewModel.getListTvShows()
+            mViewModel.tvShowsList.observe(this, Observer { tvShows ->
+                tvShows.let {
+                    tvShowsList.clear()
+                    tvShowsList.addAll(it)
+                    mAdapter.setData(tvShowsList)
+                }
+            })
         } else {
             val data = savedInstanceState.getString(TV_SHOWS_LIST)
             val movies = Gson().fromJson<List<TvShowsMdl>>(data, object : TypeToken<List<TvShowsMdl>>() {}.type)
@@ -59,8 +62,7 @@ class TvShowsFragment : Fragment() {
             mAdapter.setData(tvShowsList)
         }
 
-        initObserve()
-        initListView()
+        initRecyclerView()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -68,33 +70,7 @@ class TvShowsFragment : Fragment() {
         outState.putString(TV_SHOWS_LIST, Gson().toJson(tvShowsList))
     }
 
-    private fun initObserve() {
-        mViewModel.apply {
-            listTvShowsResult.observe(this@TvShowsFragment, Observer {
-                when (it) {
-                    is BaseViewState.Loading -> {
-                        showLoading(true)
-                    }
-                    is BaseViewState.Success -> {
-                        showLoading(false)
-                        tvShowsList.clear()
-                        tvShowsList.addAll(it.data!!)
-                        mAdapter.setData(tvShowsList)
-                    }
-                    is BaseViewState.Error -> {
-                        showLoading(false)
-                        if (it.errorMessage.toString().contains("unable", ignoreCase = true)) {
-                            Toast.makeText(context!!, resources.getString(R.string.message_no_connection), Toast.LENGTH_SHORT).show()
-                        } else {
-                            Toast.makeText(context!!, resources.getString(R.string.message_failed_load_tv_shows), Toast.LENGTH_SHORT).show()
-                        }
-                    }
-                }
-            })
-        }
-    }
-
-    private fun initListView() {
+    private fun initRecyclerView() {
         val linearLayoutManager = LinearLayoutManager(
             context!!,
             LinearLayoutManager.VERTICAL,
@@ -106,10 +82,6 @@ class TvShowsFragment : Fragment() {
             adapter = mAdapter
             addItemDecoration(DividerItemDecoration(context!!, linearLayoutManager.orientation))
         }
-    }
-
-    private fun showLoading(state: Boolean) {
-        pb_content.isVisible = state
     }
 
 }
