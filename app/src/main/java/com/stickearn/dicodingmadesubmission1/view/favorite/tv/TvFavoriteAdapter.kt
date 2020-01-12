@@ -41,10 +41,13 @@ class TvFavoriteAdapter : RecyclerView.Adapter<TvFavoriteAdapter.ViewHolder>() {
             with(itemView) {
                 Glide.with(itemView.context)
                     .load("https://image.tmdb.org/t/p/w185/${tvShowsMdl.poster}")
+                    .error(R.drawable.img_noposter)
                     .into(iv_movie_poster)
 
                 tv_movie_title.text = tvShowsMdl.name
-                tv_movie_date.text = tvShowsMdl.first_air_date.convertToLong()?.convertDate()
+                if (tvShowsMdl.first_air_date != null && tvShowsMdl.first_air_date != "") {
+                    tv_movie_date.text = tvShowsMdl.first_air_date.convertToLong()?.convertDate()
+                }
                 tv_movie_rating.text = itemView.context.resources.getString(R.string.placeholder_rating_, tvShowsMdl.vote_average.toString())
 
                 setOnClickListener {

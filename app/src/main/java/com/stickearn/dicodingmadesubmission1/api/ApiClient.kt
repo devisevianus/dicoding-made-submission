@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit
  
 class ApiClient {
     companion object {
-        private const val BASE_URL = "https://api.themoviedb.org/3/discover/"
+        private const val BASE_URL = "https://api.themoviedb.org/3/"
     }
 
     fun retrofitClient(): Retrofit {

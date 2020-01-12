@@ -79,10 +79,16 @@ class MovieDetailActivity : AppCompatActivity() {
     private fun initView() {
         Glide.with(this)
             .load("https://image.tmdb.org/t/p/w185/${movie?.poster}")
+            .error(R.drawable.img_noposter)
             .into(iv_movie_poster)
 
         tv_movie_title.text = movie?.title
-        tv_movie_date.text = resources.getString(R.string.placeholder_release_date, movie?.release_date?.convertToLong()?.convertDate())
+        if (movie?.release_date != null && movie?.release_date != "") {
+            tv_movie_date.text = resources.getString(
+                R.string.placeholder_release_date,
+                movie?.release_date?.convertToLong()?.convertDate()
+            )
+        }
         tv_movie_rating.text = resources.getString(R.string.placeholder_rating, movie?.vote_average.toString())
         tv_movie_overview.text = movie?.overview
         rb_movies.max = 100

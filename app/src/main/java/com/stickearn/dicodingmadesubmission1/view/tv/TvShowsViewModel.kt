@@ -34,10 +34,10 @@ class TvShowsViewModel(application: Application) : AndroidViewModel(application)
         mRepository = TvShowsRepository(tvShowsDao)
     }
 
-    fun getListTvShows() {
+    fun getListTvShows(query: String? = null, type: String = "discover") {
         mListTvShows.value = BaseViewState.Loading
         val apiService = ApiClient().retrofitClient().create(ApiService::class.java)
-        apiService.getTvShowsList(BuildConfig.API_KEY, "en-US")
+        apiService.getTvShowsList(type, BuildConfig.API_KEY, "en-US", query)
             .enqueue(object : Callback<TvShowsResponseMdl> {
                 override fun onFailure(call: Call<TvShowsResponseMdl>, t: Throwable) {
                     Log.e("onFailureGetTVShows", t.message!!)
@@ -50,6 +50,8 @@ class TvShowsViewModel(application: Application) : AndroidViewModel(application)
                 ) {
                     if (response.isSuccessful) {
                         mListTvShows.value = BaseViewState.Success(response.body()?.results)
+                    } else {
+                        mListTvShows.value = BaseViewState.Error(response.message())
                     }
                 }
             })

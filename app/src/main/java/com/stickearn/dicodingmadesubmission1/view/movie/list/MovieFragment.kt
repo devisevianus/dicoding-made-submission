@@ -1,10 +1,12 @@
 package com.stickearn.dicodingmadesubmission1.view.movie.list
 
+import android.app.SearchManager
+import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.util.Log
+import android.view.*
 import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -34,6 +36,12 @@ class MovieFragment : Fragment() {
     private lateinit var mAdapter: MovieAdapter
 
     private var movieList = arrayListOf<MovieMdl>()
+    private var mSearchView: SearchView? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -61,6 +69,37 @@ class MovieFragment : Fragment() {
 
         initObserve()
         initListView()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.search_menu, menu)
+        val searchItem = menu.findItem(R.id.action_search)
+        val searchManager = activity?.getSystemService(Context.SEARCH_SERVICE) as SearchManager
+
+        if (searchItem != null) {
+            mSearchView = searchItem.actionView as SearchView
+        }
+
+        if (mSearchView != null) {
+            mSearchView?.setSearchableInfo(searchManager.getSearchableInfo(activity?.componentName))
+            mSearchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    return true
+                }
+
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    if (newText?.isNotEmpty()!!) {
+                        mViewModel.getListMovies(newText, "search")
+                    } else {
+                        mViewModel.getListMovies()
+                    }
+                    Log.i("onQueryTextChange", newText)
+                    return true
+                }
+            })
+        }
+
+        super.onCreateOptionsMenu(menu, inflater)
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

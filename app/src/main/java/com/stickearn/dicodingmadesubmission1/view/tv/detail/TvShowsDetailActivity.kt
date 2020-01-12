@@ -82,10 +82,16 @@ class TvShowsDetailActivity : AppCompatActivity() {
         try {
             Glide.with(this)
                 .load("https://image.tmdb.org/t/p/w185/${tvShows?.poster}")
+                .error(R.drawable.img_noposter)
                 .into(iv_movie_poster)
 
             tv_movie_title.text = tvShows?.name
-            tv_movie_date.text = resources.getString(R.string.placeholder_release_date, tvShows?.first_air_date?.convertToLong()?.convertDate())
+            if (tvShows?.first_air_date != null && tvShows?.first_air_date != "") {
+                tv_movie_date.text = resources.getString(
+                    R.string.placeholder_release_date,
+                    tvShows?.first_air_date?.convertToLong()?.convertDate()
+                )
+            }
             tv_movie_rating.text = resources.getString(R.string.placeholder_rating, tvShows?.vote_average.toString())
             tv_movie_overview.text = tvShows?.overview
             rb_movies.max = 100

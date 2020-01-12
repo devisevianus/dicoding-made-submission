@@ -28,7 +28,7 @@ data class TvShowsMdl(
     val name: String,
     @ColumnInfo(name = "first_air_date")
     @SerializedName("first_air_date")
-    val first_air_date: String,
+    val first_air_date: String?,
     @ColumnInfo(name = "overview")
     @SerializedName("overview")
     val overview: String,

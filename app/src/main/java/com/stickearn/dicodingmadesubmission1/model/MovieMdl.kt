@@ -28,7 +28,7 @@ data class MovieMdl(
     @SerializedName("overview")
     val overview: String,
     @SerializedName("release_date")
-    val release_date: String,
+    val release_date: String?,
     @SerializedName("vote_average")
     val vote_average: Double,
     @SerializedName("poster_path")

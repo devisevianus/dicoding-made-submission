@@ -32,10 +32,10 @@ class MovieViewModel(application: Application) : AndroidViewModel(application) {
     }
 
 
-    fun getListMovies() {
+    fun getListMovies(query: String? = null, type: String = "discover") {
         mListMovies.value = BaseViewState.Loading
         val apiService = ApiClient().retrofitClient().create(ApiService::class.java)
-        apiService.getMovieList(BuildConfig.API_KEY, "en-US")
+        apiService.getMovieList(type, BuildConfig.API_KEY, "en-US", query)
             .enqueue(object : Callback<MovieResponseMdl> {
                 override fun onFailure(call: Call<MovieResponseMdl>, t: Throwable) {
                     Log.e("onFailureGetMovies", t.message!!)
@@ -48,6 +48,8 @@ class MovieViewModel(application: Application) : AndroidViewModel(application) {
                 ) {
                     if (response.isSuccessful) {
                         mListMovies.value = BaseViewState.Success(response.body()?.results)
+                    } else {
+                        mListMovies.value = BaseViewState.Error(response.message())
                     }
                 }
             })

@@ -4,6 +4,7 @@ import com.stickearn.dicodingmadesubmission1.model.MovieResponseMdl
 import com.stickearn.dicodingmadesubmission1.model.TvShowsResponseMdl
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 /**
@@ -12,16 +13,20 @@ import retrofit2.http.Query
 
 interface ApiService {
 
-    @GET("movie")
+    @GET("{type}/movie")
     fun getMovieList(
+        @Path("type") type: String,
         @Query("api_key") apiKey: String,
-        @Query("language") language: String
+        @Query("language") language: String,
+        @Query("query") query: String? = null
     ): Call<MovieResponseMdl>
 
-    @GET("tv")
+    @GET("{type}/tv")
     fun getTvShowsList(
+        @Path("type") type: String,
         @Query("api_key") apiKey: String,
-        @Query("language") language: String
+        @Query("language") language: String,
+        @Query("query") query: String? = null
     ): Call<TvShowsResponseMdl>
 
 }
