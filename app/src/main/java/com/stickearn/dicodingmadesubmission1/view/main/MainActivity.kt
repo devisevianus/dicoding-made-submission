@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
+import com.stickearn.dicodingmadesubmission1.MovieBannerWidget
 import com.stickearn.dicodingmadesubmission1.R
 import com.stickearn.dicodingmadesubmission1.util.replaceFragment
 import com.stickearn.dicodingmadesubmission1.view.favorite.FavoriteFragment

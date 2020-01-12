@@ -32,5 +32,5 @@ data class MovieMdl(
     @SerializedName("vote_average")
     val vote_average: Double,
     @SerializedName("poster_path")
-    val poster: String
+    val poster: String?
 ) : Serializable

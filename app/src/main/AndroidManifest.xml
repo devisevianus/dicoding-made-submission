@@ -15,6 +15,7 @@
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning"
         tools:targetApi="m">
+
         <activity android:name=".view.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,6 +25,22 @@
         </activity>
         <activity android:name=".view.movie.detail.MovieDetailActivity" />
         <activity android:name=".view.tv.detail.TvShowsDetailActivity" />
+
+        <!-- Receiver -->
+        <receiver android:name=".MovieBannerWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/movie_banner_widget_info" />
+        </receiver>
+
+        <!-- Service -->
+        <service android:name=".util.StackWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
     </application>
 
 </manifest>

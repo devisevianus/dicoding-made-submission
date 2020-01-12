@@ -19,4 +19,7 @@
     <string name="placeholder_release_date">Release date: %1$s</string>
     <string name="placeholder_rating" translatable="false">(%1$s)</string>
     <string name="placeholder_rating_">Rating: %1$s</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="empty_text">No Data</string>
 </resources>
