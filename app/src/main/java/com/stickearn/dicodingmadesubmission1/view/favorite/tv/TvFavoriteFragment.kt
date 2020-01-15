@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -51,7 +52,14 @@ class TvFavoriteFragment : Fragment() {
                 tvShows.let {
                     tvShowsList.clear()
                     tvShowsList.addAll(it)
-                    mAdapter.setData(tvShowsList)
+                    if (tvShowsList.isEmpty()) {
+                        rv_tv_shows.isVisible = false
+                        layout_empty.isVisible = true
+                    } else {
+                        layout_empty.isVisible = false
+                        rv_tv_shows.isVisible = true
+                        mAdapter.setData(tvShowsList)
+                    }
                 }
             })
         } else {

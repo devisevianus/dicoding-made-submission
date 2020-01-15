@@ -4,6 +4,7 @@ import android.database.Cursor
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.view.isVisible
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
@@ -65,10 +66,16 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
-                mAdapter.setData(data)
+                if (data?.count == 0) {
+                    layout_empty.isVisible = true
+                } else {
+                    layout_empty.isVisible = false
+                    mAdapter.setData(data)
+                }
             }
 
             override fun onLoaderReset(loader: Loader<Cursor>) {
+                layout_empty.isVisible = true
                 mAdapter.setData(null)
             }
         }

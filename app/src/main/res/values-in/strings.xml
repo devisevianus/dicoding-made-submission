@@ -18,6 +18,7 @@
     <string name="label_reminder_release_desc">Pengingat untuk menampilkan film yang rilis hari ini</string>
     <string name="label_reminder_daily">Pengingat Harian</string>
     <string name="label_reminder_daily_desc">Pengingat untuk kembali ke aplikasi</string>
+    <string name="label_no_favorite">Tidak ada daftar favorit</string>
     <string name="message_daily_reminder_enable">Pengingat harian diaktifkan</string>
     <string name="message_daily_reminder_disable">Pengingat harian tidak aktif</string>
     <string name="message_release_reminder_enable">Pengingat rilis diaktifkan</string>

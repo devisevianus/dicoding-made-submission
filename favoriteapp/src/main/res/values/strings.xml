@@ -2,6 +2,7 @@
     <string name="app_name">FavoriteApp</string>
     <string name="label_rating">Rating: </string>
     <string name="label_overview">Overview</string>
+    <string name="label_no_favorite">No favorite list</string>
     <string name="placeholder_release_date">Release date: %1$s</string>
     <string name="placeholder_rating" translatable="false">(%1$s)</string>
     <string name="placeholder_rating_">Rating: %1$s</string>

@@ -17,6 +17,7 @@
     <string name="label_reminder_release_desc">Reminder to showing the movie that released today</string>
     <string name="label_reminder_daily">Daily Reminder</string>
     <string name="label_reminder_daily_desc">Reminder for return to app</string>
+    <string name="label_no_favorite">No favorite list</string>
     <string name="message_daily_reminder_enable">Daily reminder is enable</string>
     <string name="message_daily_reminder_disable">Daily reminder is disable</string>
     <string name="message_release_reminder_enable">Release reminder is enable</string>
