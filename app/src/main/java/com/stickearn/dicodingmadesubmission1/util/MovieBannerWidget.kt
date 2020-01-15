@@ -1,4 +1,4 @@
-package com.stickearn.dicodingmadesubmission1
+package com.stickearn.dicodingmadesubmission1.util
 
 import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
@@ -9,8 +9,7 @@ import android.content.Intent
 import android.widget.RemoteViews
 import android.widget.Toast
 import androidx.core.net.toUri
-import com.stickearn.dicodingmadesubmission1.util.StackWidgetService
-
+import com.stickearn.dicodingmadesubmission1.R
 
 
 /**
@@ -33,13 +32,19 @@ class MovieBannerWidget : AppWidgetProvider() {
 
             val widgetText = context.getString(R.string.appwidget_text)
             // Construct the RemoteViews object
-            val views = RemoteViews(context.packageName, R.layout.movie_banner_widget)
+            val views = RemoteViews(context.packageName,
+                R.layout.movie_banner_widget
+            )
             views.setTextViewText(R.string.appwidget_text, widgetText)
             views.setRemoteAdapter(R.id.stack_view, intent)
-            views.setEmptyView(R.id.stack_view, R.id.empty_view)
+            views.setEmptyView(
+                R.id.stack_view,
+                R.id.empty_view
+            )
 
             val toastIntent = Intent(context, MovieBannerWidget::class.java)
-            toastIntent.action = TOAST_ACTION
+            toastIntent.action =
+                TOAST_ACTION
             toastIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
             intent.data = intent.toUri(Intent.URI_INTENT_SCHEME).toUri()
 
@@ -67,7 +72,11 @@ class MovieBannerWidget : AppWidgetProvider() {
     ) {
         // There may be multiple widgets active, so update all of them
         for (appWidgetId in appWidgetIds) {
-            updateAppWidget(context, appWidgetManager, appWidgetId)
+            updateAppWidget(
+                context,
+                appWidgetManager,
+                appWidgetId
+            )
         }
     }
 
@@ -77,20 +86,20 @@ class MovieBannerWidget : AppWidgetProvider() {
             if (intent.action == TOAST_ACTION) {
                 val viewIndex = intent.getIntExtra(EXTRA_ITEM, 0)
                 Toast.makeText(context, "Touched view $viewIndex", Toast.LENGTH_SHORT).show()
-                val appWidgetManager = AppWidgetManager.getInstance(context)
-                val componentName = ComponentName(context!!, MovieBannerWidget::class.java)
-                val appWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID)
-                updateAppWidget(context, appWidgetManager, appWidgetId)
-                appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetManager.getAppWidgetIds(componentName), R.id.stack_view)
-
             } else if (intent.action == AppWidgetManager.ACTION_APPWIDGET_UPDATE) {
                 val appWidgetManager = AppWidgetManager.getInstance(context)
                 val componentName = ComponentName(context!!, MovieBannerWidget::class.java)
                 val appWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID)
                 val appWidgetIds = intent.getIntArrayExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS)
                 onUpdate(context, appWidgetManager, appWidgetIds!!)
-                updateAppWidget(context, appWidgetManager, appWidgetId)
-                appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetManager.getAppWidgetIds(componentName), R.id.stack_view)
+                updateAppWidget(
+                    context,
+                    appWidgetManager,
+                    appWidgetId
+                )
+                appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetManager.getAppWidgetIds(componentName),
+                    R.id.stack_view
+                )
             }
         }
     }

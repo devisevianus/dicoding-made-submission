@@ -24,11 +24,13 @@ class MovieFavoriteFragment : Fragment() {
 
     companion object {
         private const val MOVIE_LIST = "movie_list"
+        //private const val LOADER_MOVIES = 1
         fun newInstance(): Fragment = MovieFavoriteFragment()
     }
 
     private lateinit var mViewModel: FavoriteViewModel
     private lateinit var mAdapter: MovieFavoriteAdapter
+    //private lateinit var mAdapter: MovieFavoriteAdapterV2
 
     private var moviesList = arrayListOf<MovieMdl>()
 
@@ -45,6 +47,7 @@ class MovieFavoriteFragment : Fragment() {
 
         mViewModel = ViewModelProvider(this).get(FavoriteViewModel::class.java)
         mAdapter = MovieFavoriteAdapter()
+        //mAdapter = MovieFavoriteAdapterV2()
 
         if (savedInstanceState == null) {
             mViewModel.moviesList.observe(this, Observer { movies ->
@@ -54,6 +57,8 @@ class MovieFavoriteFragment : Fragment() {
                     mAdapter.setData(moviesList)
                 }
             })
+            /*LoaderManager.getInstance(this)
+                .initLoader(LOADER_MOVIES, null, mLoaderCallback())*/
         } else {
             val data = savedInstanceState.getString(MOVIE_LIST)
             val movies = Gson().fromJson<List<MovieMdl>>(data, object : TypeToken<List<MovieMdl>>() {}.type)
@@ -84,5 +89,23 @@ class MovieFavoriteFragment : Fragment() {
             addItemDecoration(DividerItemDecoration(context, linearLayoutManager.orientation))
         }
     }
+
+    /*private fun mLoaderCallback(): LoaderManager.LoaderCallbacks<Cursor> =
+        object : LoaderManager.LoaderCallbacks<Cursor> {
+            override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
+                return CursorLoader(context!!,
+                    MovieProvider.URI_MOVIE,
+                    arrayOf(MovieMdl.COLUMN_TITLE),
+                    null, null, null)
+            }
+
+            override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
+                mAdapter.setData(data)
+            }
+
+            override fun onLoaderReset(loader: Loader<Cursor>) {
+                mAdapter.setData(null)
+            }
+        }*/
 
 }

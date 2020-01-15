@@ -1,5 +1,6 @@
 package com.stickearn.dicodingmadesubmission1.model
 
+import android.content.ContentValues
 import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -17,20 +18,40 @@ class MovieResponseMdl(
 )
 
 @Entity(tableName = "movie_table")
-data class MovieMdl(
+class MovieMdl : Serializable {
+
+    companion object {
+        private const val COLUMN_ID = "id"
+        private const val COLUMN_TITLE = "title"
+
+        fun fromContentValues(values: ContentValues?): MovieMdl {
+            val movieMdl = MovieMdl()
+            if (values != null && values.containsKey(COLUMN_ID)) {
+                movieMdl.id = values.getAsLong(COLUMN_ID)
+            }
+
+            if (values != null && values.containsKey(COLUMN_TITLE)) {
+                movieMdl.title = values.getAsString(COLUMN_TITLE)
+            }
+
+            return movieMdl
+        }
+    }
+
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     @NonNull
     @SerializedName("id")
-    val id: Long,
+    var id: Long = 0
     @SerializedName("title")
-    val title: String,
+    var title: String = ""
     @SerializedName("overview")
-    val overview: String,
+    var overview: String = ""
     @SerializedName("release_date")
-    val release_date: String?,
+    var release_date: String? = null
     @SerializedName("vote_average")
-    val vote_average: Double,
+    var vote_average: Double = 0.0
     @SerializedName("poster_path")
-    val poster: String?
-) : Serializable
+    var poster: String? = null
+
+}

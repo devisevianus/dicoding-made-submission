@@ -1,7 +1,5 @@
 package com.stickearn.dicodingmadesubmission1.view.movie.detail
 
-import android.appwidget.AppWidgetManager
-import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -12,19 +10,14 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
-import com.stickearn.dicodingmadesubmission1.MovieBannerWidget
+import com.stickearn.dicodingmadesubmission1.util.MovieBannerWidget
 import com.stickearn.dicodingmadesubmission1.R
 import com.stickearn.dicodingmadesubmission1.helper.convertDate
 import com.stickearn.dicodingmadesubmission1.helper.convertToLong
 import com.stickearn.dicodingmadesubmission1.model.MovieMdl
-import com.stickearn.dicodingmadesubmission1.util.StackWidgetService
 import com.stickearn.dicodingmadesubmission1.view.movie.MovieViewModel
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.layout_toolbar.*
-import androidx.core.app.ComponentActivity.ExtraData
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-
 
 
 /**

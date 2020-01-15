@@ -6,11 +6,11 @@ import android.os.Bundle
 import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
-import com.stickearn.dicodingmadesubmission1.MovieBannerWidget
 import com.stickearn.dicodingmadesubmission1.R
 import com.stickearn.dicodingmadesubmission1.util.replaceFragment
 import com.stickearn.dicodingmadesubmission1.view.favorite.FavoriteFragment
 import com.stickearn.dicodingmadesubmission1.view.movie.list.MovieFragment
+import com.stickearn.dicodingmadesubmission1.view.settings.SettingsActivity
 import com.stickearn.dicodingmadesubmission1.view.tv.list.TvShowsFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.layout_toolbar.*
@@ -42,9 +42,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.action_change_settings) {
-            val intent = Intent(Settings.ACTION_LOCALE_SETTINGS)
-            startActivity(intent)
+        when (item.itemId) {
+            R.id.action_change_settings -> {
+                val intent = Intent(Settings.ACTION_LOCALE_SETTINGS)
+                startActivity(intent)
+            }
+            R.id.action_reminder_settings -> {
+                SettingsActivity.startThisActivity(this)
+            }
         }
         return super.onOptionsItemSelected(item)
     }

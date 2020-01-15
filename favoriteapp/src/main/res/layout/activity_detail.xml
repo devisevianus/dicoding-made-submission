@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/iv_movie_poster"
+        android:layout_width="@dimen/dp75"
+        android:layout_height="@dimen/dp100"
+        android:layout_marginTop="@dimen/dp10"
+        android:layout_marginStart="@dimen/dp16"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@drawable/img_poster_avengerinfinity"
+        tools:ignore="ContentDescription"
+        />
+
+    <TextView
+        android:id="@+id/tv_movie_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp10"
+        android:layout_marginStart="@dimen/dp16"
+        android:textSize="@dimen/sp16"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/iv_movie_poster"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Avengers: Infinity Wars"
+        />
+
+    <TextView
+        android:id="@+id/tv_movie_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp16"
+        app:layout_constraintTop_toBottomOf="@id/tv_movie_title"
+        app:layout_constraintStart_toEndOf="@id/iv_movie_poster"
+        tools:text="Released: April 25, 2018"
+        />
+
+    <TextView
+        android:id="@+id/tv_label_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp16"
+        android:text="@string/label_rating"
+        app:layout_constraintTop_toBottomOf="@id/tv_movie_date"
+        app:layout_constraintStart_toEndOf="@id/iv_movie_poster"
+        />
+
+    <RatingBar
+        android:id="@+id/rb_movies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp4"
+        android:isIndicator="true"
+        android:indeterminate="false"
+        android:max="100"
+        android:progress="70"
+        app:layout_constraintTop_toBottomOf="@id/tv_movie_date"
+        app:layout_constraintStart_toEndOf="@id/tv_label_rating"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        />
+
+    <TextView
+        android:id="@+id/tv_movie_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp4"
+        app:layout_constraintTop_toBottomOf="@id/tv_movie_date"
+        app:layout_constraintStart_toEndOf="@id/rb_movies"
+        tools:text="(83)"
+        />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="@dimen/dp16"
+        android:background="#FFA8A6AC"
+        app:layout_constraintTop_toBottomOf="@id/iv_movie_poster"
+        />
+
+    <TextView
+        android:id="@+id/tv_label_overview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp16"
+        android:layout_marginStart="@dimen/dp16"
+        android:layout_marginEnd="@dimen/dp16"
+        android:text="@string/label_overview"
+        android:textSize="@dimen/sp18"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/divider"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Overview"
+        />
+
+    <TextView
+        android:id="@+id/tv_movie_overview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp8"
+        android:layout_marginStart="@dimen/dp16"
+        android:layout_marginEnd="@dimen/dp16"
+        app:layout_constraintTop_toBottomOf="@id/tv_label_overview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

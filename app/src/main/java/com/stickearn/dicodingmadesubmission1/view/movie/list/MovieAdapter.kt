@@ -46,7 +46,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
                 tv_movie_title.text = movieMdl.title
                 if (movieMdl.release_date != null && movieMdl.release_date != "") {
-                    tv_movie_date.text = movieMdl.release_date.convertToLong()?.convertDate()
+                    tv_movie_date.text = movieMdl.release_date?.convertToLong()?.convertDate()
                 }
                 tv_movie_rating.text = itemView.context.resources.getString(R.string.placeholder_rating_, movieMdl.vote_average.toString())
 

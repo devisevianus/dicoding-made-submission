@@ -10,13 +10,25 @@
     <string name="title_favorite">Favorit</string>
     <string name="title_change_language">Ubah Bahasa</string>
     <string name="title_search">Cari</string>
+    <string name="title_settings">Pengaturan</string>
     <string name="label_rating">Penilaian: </string>
+    <string name="title_catalog_movie">Catalog Movie</string>
     <string name="label_overview">Ikhtisar</string>
+    <string name="label_reminder_release">Pengingat Rilis</string>
+    <string name="label_reminder_release_desc">Pengingat untuk menampilkan film yang rilis hari ini</string>
+    <string name="label_reminder_daily">Pengingat Harian</string>
+    <string name="label_reminder_daily_desc">Pengingat untuk kembali ke aplikasi</string>
+    <string name="message_daily_reminder_enable">Pengingat harian diaktifkan</string>
+    <string name="message_daily_reminder_disable">Pengingat harian tidak aktif</string>
+    <string name="message_release_reminder_enable">Pengingat rilis diaktifkan</string>
+    <string name="message_release_reminder_disable">Pengingat rilis tidak aktif</string>
     <string name="message_no_connection">Periksa koneksi Anda</string>
     <string name="message_failed_load_movies">Gagal memuat film</string>
     <string name="message_failed_load_tv_shows">Gagal memuat acara TV</string>
     <string name="message_add_to_favorite">Ditambahkan ke favorit</string>
     <string name="message_remove_from_favorite">Dihapus dari favorit</string>
+    <string name="message_catalog_movie">Cek film-film terbaru sekarang!</string>
     <string name="placeholder_release_date">Tanggal rilis: %1$s</string>
     <string name="placeholder_rating_">Penilaian: %1$s</string>
+    <string name="placeholder_notification_message">%s rilis hari ini!</string>
 </resources>

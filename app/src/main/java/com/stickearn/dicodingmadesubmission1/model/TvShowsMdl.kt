@@ -37,5 +37,5 @@ data class TvShowsMdl(
     val vote_average: Double,
     @ColumnInfo(name = "poster_path")
     @SerializedName("poster_path")
-    val poster: String
+    val poster: String?
 ) : Serializable

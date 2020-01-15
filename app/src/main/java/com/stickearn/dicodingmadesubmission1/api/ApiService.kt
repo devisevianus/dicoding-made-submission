@@ -29,4 +29,11 @@ interface ApiService {
         @Query("query") query: String? = null
     ): Call<TvShowsResponseMdl>
 
+    @GET("discover/movie")
+    fun getMovieRelease(
+        @Query("api_key") apiKey: String,
+        @Query("primary_release_date.gte") primaryDateGte: String,
+        @Query("primary_release_date.lte") primaryDateLte: String
+    ): Call<MovieResponseMdl>
+
 }
